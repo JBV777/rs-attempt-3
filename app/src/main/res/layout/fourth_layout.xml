@@ -6,38 +6,35 @@
 
     <Button
         android:id="@+id/changepassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="74dp"
-        android:text="change password" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Change password" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/changepassword"
-        android:layout_marginTop="172dp"
-        android:text="Button" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/changepassword"
+        android:text="Button"
+        android:textAllCaps="true" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/changepassword"
-        android:layout_marginBottom="242dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button3"
         android:text="Button" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/changepassword"
-        android:layout_marginBottom="138dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button4"
         android:text="Button" />
 </RelativeLayout>

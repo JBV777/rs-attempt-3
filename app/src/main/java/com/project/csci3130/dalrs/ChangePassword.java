@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,13 +51,33 @@ public class ChangePassword extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                if(CurrentPassword==null||NewPassword1==null||NewPassword2==null){
+                    Toast.makeText(getApplicationContext(),"Error!",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 final String newpassword1 = NewPassword1.getText().toString();
                 final String newpassword2 = NewPassword2.getText().toString();
                 String oldpassword = CurrentPassword.getText().toString();
                 user = FirebaseAuth.getInstance().getCurrentUser();
                 final String email = user.getEmail();
+                if(oldpassword.isEmpty()){
+                    CurrentPassword.setError("");
+                    Toast.makeText(getApplicationContext(),"Please enter your old password!",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(!newpassword1.equals(newpassword2)){
+                    NewPassword1.setError("");
+                    NewPassword2.setError("");
+                    Toast.makeText(getApplicationContext(),"Thw passwords does not match!",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(newpassword1.length()<8){
+                    NewPassword1.setError("");
+                    NewPassword2.setError("");
+                    Toast.makeText(getApplicationContext(),"Thw password need to be at least 8 characters long",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 final AuthCredential credential = EmailAuthProvider.getCredential(email,oldpassword);
-                if (newpassword1.equals(newpassword2) && (!oldpassword.equals(null))){
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -82,16 +103,9 @@ public class ChangePassword extends AppCompatActivity {
                             }
                         }
                     });
-
+                    auth.signOut();
                     startActivity(new Intent(ChangePassword.this,LoginInterfaceActivity.class));
                  }
-                 else if(!newpassword1.equals(newpassword2)){
-                    result.setText("Your passwords are not the same in two field");
-                }
-                else if(oldpassword.equals(null)){
-                    result.setText("Your must enter you current password.");
-                }
-            }
         });
     }
 }

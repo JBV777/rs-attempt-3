@@ -30,7 +30,7 @@ public class forget_password extends AppCompatActivity {
                     Toast.makeText(forget_password.this, "Please enter the email", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (e.getText().toString().contains("@dal.ca")){
+                if (!e.getText().toString().contains("@dal.ca")){
                     e.setError("Please enter a valid email!");
                     Toast.makeText(forget_password.this, "Please enter a valid email!", Toast.LENGTH_LONG).show();
                     return;
