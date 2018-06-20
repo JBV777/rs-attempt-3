@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_layout"
+            android:title="Add/Drop Class" />
+        <item
+            android:id="@+id/nav_second_layout"
+            android:title="Course List" />
+        <item
+            android:id="@+id/nav_third_layout"
+            android:title="Contact us" />
+
+    </group>
+
+    <item android:title="About my Account">
+        <menu>
+            <item
+                android:id="@+id/nav_fourth_layout"
+                android:title="Account Setting" />
+            <item
+                android:id="@+id/nav_fifth_layout"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>
